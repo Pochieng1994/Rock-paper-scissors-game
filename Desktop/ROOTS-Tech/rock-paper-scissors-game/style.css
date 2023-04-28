@@ -1,0 +1,29 @@
+.div-1,
+.div-2 {
+  display: inline-block;
+  margin-left: 350px;
+  margin-bottom: 100px;
+}
+
+.div-3 {
+  margin-left: 550px;
+
+}
+
+.buttons {
+  margin-left: 425px;
+  margin-top: 75px;
+}
+
+.rock,
+.paper {
+  margin-right: 100px;
+}
+
+.para-1,
+.para-2 {
+  margin-left: 40px;
+}
+
+
+
