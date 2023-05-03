@@ -3,22 +3,76 @@
 -A user can play as many times as they want 
 */
 
-  let buttons = document.querySelectorAll('.buttons button');
+playerChoiceDisplay = document.querySelector('#player-choice');
+computerChoiceDisplay = document.querySelector('#computer-choice');
+result = document.querySelector('#result');
+buttons = document.querySelectorAll('button');
+let playerChoice;
+let computerChoice;
 
-  let playerScore = 0;
-  let computerScore = 0;
 
-  /* Computer Options, I would assign 3 numbers to represent the 3 different options that I have Rock,Paper,
-  Scissors.*/
 
-  let computerOptions = ['Rock', 'Paper', 'Scissors'];
-  
-  buttons.forEach(function(button){
-    button.addEventListener('click', function(){
-      let computerNumber = Math.floor(Math.random() * 3);
-      let computerChoice = computerOptions[computerNumber];
-      console.log(computerChoice);
-    })
+buttons.forEach(function(button) {
+  button.addEventListener('click', function(e) {
+    playerChoice = e.target.id;
+    playerChoiceDisplay.textContent = playerChoice;
+    generatedComputerChoice();
+    getResult();
   })
+})
 
-  let computerNumber = Math.floor(Math.random() * 3);
+function generatedComputerChoice () {
+  randomNumber = Math.ceil(Math.random() * 3);
+
+  if (randomNumber === 1) {
+    computerChoice = 'rock';
+  }
+
+  if (randomNumber === 2) {
+    computerChoice = 'paper';
+  }
+
+  if (randomNumber === 3) {
+    computerChoice = 'scissors';
+  }
+
+  computerChoiceDisplay.textContent = computerChoice;
+}
+
+function getResult() {
+  if(playerChoice === computerChoice) {
+    result.textContent = 'Its a Tie!'
+  }
+
+  if(playerChoice === 'rock' && computerChoice === 'scissors'){
+    result.textContent = 'Hooray You Won!'
+  }
+
+  if(playerChoice === 'rock' && computerChoice === 'paper'){
+    result.textContent = 'You Lost'
+  }
+
+  if(playerChoice === 'scissors' && computerChoice === 'rock'){
+    result.textContent = 'You Lost'
+  }
+
+  if(playerChoice === 'scissors' && computerChoice === 'paper'){
+    result.textContent = 'Hooray You Won!'
+  }
+
+  if(playerChoice === 'paper' && computerChoice === 'scissors'){
+    result.textContent = 'You Lost'
+  }
+
+  if(playerChoice === 'paper' && computerChoice === 'rock'){
+    result.textContent = 'Hooray You Won!'
+  }
+
+}
+
+
+
+
+
+
+
